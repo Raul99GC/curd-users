@@ -44,25 +44,39 @@ body {
    width: 100%;
    min-height: 100vh;
    /* background: url("assets/img/svg/Animated-Shape.svg");
-   background-size: cover; */
-   background-image: linear-gradient(45deg, #7175da, #9790F2);
+    */
+   background: url("assets/img/svg/Animated-Shape.svg");
+   background-size: cover;
    flex-direction: column;
    justify-content: flex-start;
-   
+
 }
 
-.card-user{
+.card-user {
    margin-top: 3rem;
    width: 30rem;
    flex-direction: column;
    border-radius: 1rem;
-	box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
+   box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
    background-color: var(--color-white);
    overflow: hidden;
 }
 
-.card-user__name-box{
+.card-user__name-box {
    width: 100%;
-   background-color: var(--background-box-name);
+   height: 15rem;
+   background-color: #2A265F;
    color: var(--color-white);
+}
+
+.card-user__inf {
+   width: 100%;
+   height: 15rem;
+   flex-direction: column;
+   gap: 1rem;
+
+}
+
+.card-user__p{
+   width: 100%;
 }
