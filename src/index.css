@@ -1,0 +1,68 @@
+/* ********** Customs Properties  ********** */
+@import url('https://fonts.googleapis.com/css2?family=Mali:wght@400;600;700&family=Roboto:wght@300;400;700&family=Rubik:wght@300;600&display=swap');
+
+:root {
+   --color-white: white;
+   --background-box-name: #EC87C0;
+}
+
+
+/* ********** Resets  ********** */
+
+* {
+   margin: 0;
+   padding: 0;
+}
+
+*,
+*::after,
+*::before {
+   box-sizing: inherit;
+}
+
+html {
+   font-size: 62.5%;
+   box-sizing: border-box;
+}
+
+body {
+   font-family: 'Roboto', sans-serif;
+   font-size: 16px;
+}
+
+/* ********** Utilities  ********** */
+
+.flex {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+/* ********** Styles  ********** */
+
+.CrudUsers {
+   width: 100%;
+   min-height: 100vh;
+   /* background: url("assets/img/svg/Animated-Shape.svg");
+   background-size: cover; */
+   background-image: linear-gradient(45deg, #7175da, #9790F2);
+   flex-direction: column;
+   justify-content: flex-start;
+   
+}
+
+.card-user{
+   margin-top: 3rem;
+   width: 30rem;
+   flex-direction: column;
+   border-radius: 1rem;
+	box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
+   background-color: var(--color-white);
+   overflow: hidden;
+}
+
+.card-user__name-box{
+   width: 100%;
+   background-color: var(--background-box-name);
+   color: var(--color-white);
+}
