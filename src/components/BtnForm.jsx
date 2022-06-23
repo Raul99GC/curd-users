@@ -1,23 +1,18 @@
 import React, { useState } from 'react'
 import newUserIcon from '../assets/img/svg/newUser.svg'
-import Form from './form'
+import Form from './Form'
 
 
 
-const BtnForm = ({ getAllUsers, handleSubmit, register, reset, objUpdate, setObjUpdate, clickBtnUser, click }) => {
+const BtnForm = ({ getAllUsers, handleSubmit, register, reset, objUpdate, setObjUpdate, clickBtnUser, click, showForm }) => {
 
 
-
-
-    console.log()
     return (
 
         <div div className="icon-form" >
-            <a href="#" onClick={click}>
+            <a  onClick={click}>
                 <img className='icon-form__img' src={newUserIcon} alt="new user" />
             </a>
-
-
             {
                 clickBtnUser &&
                 <Form
@@ -27,6 +22,7 @@ const BtnForm = ({ getAllUsers, handleSubmit, register, reset, objUpdate, setObj
                     reset={reset}
                     objUpdate={objUpdate}
                     setObjUpdate={setObjUpdate}
+                    click={click}
 
                 />
             }

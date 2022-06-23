@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import useCreateCard from '../hooks/useCreateCard'
+import useUpdate from '../hooks/useUpdate'
 
-const Form = ({ getAllUsers, handleSubmit, register, reset, objUpdate, setObjUpdate }) => {
-
-
+const Form = ({ getAllUsers, handleSubmit, register, reset, objUpdate, setObjUpdate, click }) => {
 
    const newUser = useCreateCard
+   const updateUserById = useUpdate
 
    const defaultValuesForm = {
       email: '',
@@ -17,10 +17,19 @@ const Form = ({ getAllUsers, handleSubmit, register, reset, objUpdate, setObjUpd
    }
 
    const submit = data => {
+      if (objUpdate !== undefined) {
+         console.log('en el update')
+         // console.log(data)
+         updateUserById(objUpdate.id, data, getAllUsers, click)
+         reset(defaultValuesForm)
 
+      } else {
+         console.log('solito sin na')
+         newUser(data, getAllUsers)
+         click()
+      }
+      reset(defaultValuesForm)
 
-
-      newUser(data, getAllUsers)
 
    }
 
@@ -28,8 +37,10 @@ const Form = ({ getAllUsers, handleSubmit, register, reset, objUpdate, setObjUpd
 
 
       <div className='box-form flex'>
-
          <div className="new-form flex">
+            <div className="closeBtn">
+               <a onClick={click} href="#"><i className='bx bx-x'></i></a>
+            </div>
             <form className='form' onSubmit={handleSubmit(submit)}>
                <div className="form__title"><h2>Bienvenido</h2></div>
                <div className="form__input-container ic1">

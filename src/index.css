@@ -63,8 +63,8 @@ ul {
 
 .form-container{
    position: absolute;
-   /* z-index: 1000; */
 }
+
 .box-form {
    flex-direction: column;
    width: 100%;
@@ -76,6 +76,23 @@ ul {
    left: 0;
    right: 0;
    bottom: 0;
+   justify-content: flex-start;
+   padding-top: 5rem;
+}
+
+.closeBtn{
+   background-color: var(--background-form);
+   position: absolute;
+   width: 4rem;
+   height: 4rem;
+   top: 1rem;
+   right: 1rem;
+   z-index: 10;
+   font-size: 4rem;
+}
+
+.bx-x{
+   color: var(--color-white);
 }
 
 .icon-form{
@@ -99,15 +116,9 @@ ul {
 
 .new-form{
    width: 30rem;
-   position: sticky;
-   
+   position: fixed;
 }
 
-
-
-/* .box-form:hover .new-form {
-   display: flex;
-} */
 
 .form {
    /* display: none; */
@@ -119,10 +130,6 @@ ul {
    width: 100%;
    
 }
-
-/* .icon-form:hover .form {
-   display: block;
-} */
 
 .form__title {
    color: var(--color-white);

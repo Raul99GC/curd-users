@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import BtnForm from './components/BtnForm'
 import CardUser from './components/CardUser'
-import Form from './components/Form'
 import useUsers from './hooks/useUsers'
 
 
@@ -13,12 +12,23 @@ const CrudUsers = () => {
    const { handleSubmit, register, reset } = useForm()
    const [objUpdate, setObjUpdate] = useState()
    const [clickBtnUser, setClicBtnUser] = useState(false)
+
+
    const click = () => {
-      console.log('boton')
       if (!clickBtnUser) {
          setClicBtnUser(true)
       } else {
          setClicBtnUser(false)
+         const obj = {
+            email: '',
+            password: '',
+            first_name: '',
+            last_name: '',
+            birthday: ''
+         }
+         reset (obj)
+         
+
       }
    }
 
@@ -29,6 +39,7 @@ const CrudUsers = () => {
       <div className='CrudUsers flex'>
 
          <BtnForm
+            URL={URL}
             getAllUsers={users.getAllUsers}
             handleSubmit={handleSubmit}
             register={register}
@@ -37,16 +48,20 @@ const CrudUsers = () => {
             setObjUpdate={setObjUpdate}
             clickBtnUser={clickBtnUser}
             click={click}
-
+            setClicBtnUser={setClicBtnUser}
          />
 
 
          {
             users.users?.map(user => (
                <CardUser
+                  URL={URL}
                   user={user}
                   key={user.id}
                   getAllUsers={users.getAllUsers}
+                  click={click}
+                  reset={reset}
+                  setObjUpdate={setObjUpdate}
                />
             ))
          }

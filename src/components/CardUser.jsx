@@ -4,7 +4,7 @@ import useCreateCard from '../hooks/useCreateCard'
 
 
 
-const CardUser = ({ user, getAllUsers, clickUp }) => {
+const CardUser = ({ user, getAllUsers, click, reset, setObjUpdate }) => {
 
 
     const deleteUser = (id) => {
@@ -17,16 +17,28 @@ const CardUser = ({ user, getAllUsers, clickUp }) => {
             .catch(err => console.log(err))
     }
 
-    // const createUser = useCreateCard(aquiVaAlgo)
+    const updateUser = () => {
+        click()
+    
+        const obj = {
+            email: user.email,
+            password: user.password,
+            first_name: user.first_name,
+            last_name: user.last_name,
+            birthday: user.birthday
+        }
+        reset(obj)
+        setObjUpdate(user)
+      }
 
 
     return (
         <article className='card-user flex'>
             <div className="card-user__settings">
-                <a href="#"><i className='bx bx-dots-vertical-rounded card-user__icon-setting'></i></a>
+                <a ><i className='bx bx-dots-vertical-rounded card-user__icon-setting'></i></a>
                 <div className="card-user__menu flex">
                     <ul className='card-user__ul flex'>
-                        <li><button  className='card-user__button'><i className='bx bxs-edit-alt card-user__icon-li'></i></button> </li>
+                        <li><button onClick={updateUser} className='card-user__button'><i className='bx bxs-edit-alt card-user__icon-li'></i></button> </li>
                         <li><button onClick={() => deleteUser(user.id)} className='card-user__button'><i className='bx bxs-folder-minus card-user__icon-li'></i></button> </li>
                     </ul>
                 </div>
