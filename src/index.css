@@ -3,7 +3,9 @@
 
 :root {
    --color-white: white;
-   --background-box-name: #EC87C0;
+   --background-box-name: ##2A265F;
+   --background-form: #15172b;
+   --color-placeholder: #65657b;
 }
 
 
@@ -30,6 +32,11 @@ body {
    font-size: 16px;
 }
 
+ul {
+   text-decoration: none;
+   list-style: none;
+}
+
 /* ********** Utilities  ********** */
 
 .flex {
@@ -43,14 +50,180 @@ body {
 .CrudUsers {
    width: 100%;
    min-height: 100vh;
-   /* background: url("assets/img/svg/Animated-Shape.svg");
-    */
    background: url("assets/img/svg/Animated-Shape.svg");
    background-size: cover;
    flex-direction: column;
    justify-content: flex-start;
-
+   position: relative;
+   z-index: 1;
 }
+
+
+/**********************  icon new user **************************************/
+
+.form-container{
+   position: absolute;
+   /* z-index: 1000; */
+}
+.box-form {
+   flex-direction: column;
+   width: 100%;
+   min-height: 100vh;
+   position: absolute;
+   z-index: 2;
+   background-color: rgb(0 0 0 / 0.92);
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+}
+
+.icon-form{
+   margin-top: 4rem;
+   width: 100%;
+   height: 8rem;
+   border-radius: 1rem;
+   /* display: flex;
+   justify-content: center; */
+   
+}
+
+.icon-form__img{
+   width: 8rem;
+   height: 8rem;
+   background-color: rgba(255, 255, 255, 0.479);
+}
+
+
+/************************  Form  ***********************************/
+
+.new-form{
+   width: 30rem;
+   position: sticky;
+   
+}
+
+
+
+/* .box-form:hover .new-form {
+   display: flex;
+} */
+
+.form {
+   /* display: none; */
+   background-color: var(--background-form);
+   border-radius: 20px;
+   box-sizing: border-box;
+   height: 60rem;
+   padding: 20px;
+   width: 100%;
+   
+}
+
+/* .icon-form:hover .form {
+   display: block;
+} */
+
+.form__title {
+   color: var(--color-white);
+   font-size: 2.6rem;
+   font-weight: 600;
+   margin-top: 1rem;
+}
+
+.form__input-container {
+   height: 5rem;
+   position: relative;
+   width: 100%;
+}
+
+
+.ic1 {
+   margin-top: 4rem;
+}
+
+.ic2 {
+   margin-top: 3rem;
+}
+
+.form__input {
+   background-color: #303245;
+   border-radius: 1.2rem;
+   border: 0;
+   color: var(--color-white);
+   font-size: 1.8rem;
+   height: 100%;
+   outline: 0;
+   padding: .4rem 2rem 0;
+   width: 100%;
+}
+
+.form__cut {
+   background-color: var(--background-form);
+   border-radius: 1rem;
+   height: 2rem;
+   width: 7.6rem;
+   left: 2rem;
+   position: absolute;
+   top: -2rem;
+   transform: translateY(0);
+   transition: transform 200ms;
+}
+
+.form__cut--short {
+   width: 5rem;
+}
+
+
+.form__input:focus~.form__cut,
+.form__input:not(:placeholder-shown)~.cut {
+   transform: translateY(8px);
+}
+
+.form__placeholder {
+   color: #65657b;
+   position: absolute;
+   left: 2rem;
+   top: 2rem;
+   line-height: 1.4px;
+   pointer-events: none;
+   transform-origin: 0 50%;
+   transition: transform 200ms, color 200ms;
+}
+
+.form__input:focus~.form__placeholder,
+.form__input:not(:placeholder-shown)~.form__placeholder {
+   transform: translateY(-3rem) translateX(1rem) scale(0.75);
+}
+
+.form__input:not(:placeholder-shown)~.form__placeholder {
+   color: #808097;
+}
+
+.form__input:focus~.form__placeholder {
+   color: #dc2f55;
+}
+
+.form__submit {
+   background-color: #08d;
+   border-radius: 12px;
+   border: 0;
+   box-sizing: border-box;
+   color: var(--color-white);
+   cursor: pointer;
+   font-size: 18px;
+   height: 50px;
+   margin-top: 38px;
+   text-align: center;
+   width: 100%;
+ }
+
+ .form__submit:active {
+   background-color: #06b;
+ }
+
+
+/*************************  Cards  *****************************/
 
 .card-user {
    margin-top: 3rem;
@@ -60,13 +233,71 @@ body {
    box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
    background-color: var(--color-white);
    overflow: hidden;
+   position: relative;
 }
+
+.card-user__settings {
+   width: 3rem;
+   height: 3rem;
+   position: absolute;
+   top: 2rem;
+   right: 2rem;
+}
+
+.card-user__menu {
+   display: none;
+   width: 15rem;
+   height: 4rem;
+   border-radius: .3rem;
+   overflow: hidden;
+   background-color: var(--color-white);
+   box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
+   position: absolute;
+   top: 0rem;
+   right: 3rem;
+
+}
+
+.card-user__settings:hover .card-user__menu {
+   display: flex;
+   gap: 2rem;
+}
+
+.card-user__ul {
+   width: 100%;
+   gap: 2rem;
+}
+
+.card-user__icon-li {
+   font-size: 3rem;
+   padding: 0 1rem;
+}
+
+.card-user__button {
+   border: none;
+   background-color: var(--color-white);
+   box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
+   cursor: pointer;
+}
+
+.card-user__button:active {
+   background-color: #e2504c;
+}
+
+.card-user__icon-setting {
+   font-size: 3rem;
+   color: var(--color-white);
+   font-weight: 600;
+}
+
 
 .card-user__name-box {
    width: 100%;
    height: 15rem;
    background-color: #2A265F;
    color: var(--color-white);
+   padding-bottom: 3rem;
+   align-items: flex-end;
 }
 
 .card-user__inf {
@@ -77,6 +308,6 @@ body {
 
 }
 
-.card-user__p{
+.card-user__p {
    width: 100%;
 }
