@@ -18,13 +18,12 @@ const Form = ({ getAllUsers, handleSubmit, register, reset, objUpdate, setObjUpd
 
    const submit = data => {
       if (objUpdate !== undefined) {
-         console.log('en el update')
-         // console.log(data)
+         console.log('update')
          updateUserById(objUpdate.id, data, getAllUsers, click)
          reset(defaultValuesForm)
 
       } else {
-         console.log('solito sin na')
+         console.log('si lo logro nmms')
          newUser(data, getAllUsers)
          click()
       }

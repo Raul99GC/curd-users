@@ -20,14 +20,14 @@ const CrudUsers = () => {
       } else {
          setClicBtnUser(false)
          const obj = {
-            email: '',
-            password: '',
-            first_name: '',
-            last_name: '',
-            birthday: ''
+            // email: '',
+            // password: '',
+            // first_name: '',
+            // last_name: '',
+            // birthday: ''
          }
-         reset (obj)
-         
+         reset(obj)
+
 
       }
    }
@@ -51,20 +51,22 @@ const CrudUsers = () => {
             setClicBtnUser={setClicBtnUser}
          />
 
+         <div className="all-cards flex">
+            {
+               users.users?.map(user => (
+                  <CardUser
+                     URL={URL}
+                     user={user}
+                     key={user.id}
+                     getAllUsers={users.getAllUsers}
+                     click={click}
+                     reset={reset}
+                     setObjUpdate={setObjUpdate}
+                  />
+               ))
+            }
+         </div>
 
-         {
-            users.users?.map(user => (
-               <CardUser
-                  URL={URL}
-                  user={user}
-                  key={user.id}
-                  getAllUsers={users.getAllUsers}
-                  click={click}
-                  reset={reset}
-                  setObjUpdate={setObjUpdate}
-               />
-            ))
-         }
       </div>
    )
 }

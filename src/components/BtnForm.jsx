@@ -9,7 +9,7 @@ const BtnForm = ({ getAllUsers, handleSubmit, register, reset, objUpdate, setObj
 
     return (
 
-        <div div className="icon-form" >
+        <div div className="icon-form flex" >
             <a  onClick={click}>
                 <img className='icon-form__img' src={newUserIcon} alt="new user" />
             </a>
