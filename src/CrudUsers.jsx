@@ -7,7 +7,7 @@ import useUsers from './hooks/useUsers'
 
 
 
-URL = 'https://users-crud1.herokuapp.com/users/'
+URL = 'https://users-crud.academlo.tech/users'
 const CrudUsers = () => {
    const { handleSubmit, register, reset } = useForm()
    const [objUpdate, setObjUpdate] = useState()
