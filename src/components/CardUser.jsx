@@ -8,7 +8,7 @@ const CardUser = ({ user, getAllUsers, click, reset, setObjUpdate }) => {
 
 
     const deleteUser = (id) => {
-        const URL = 'https://users-crud1.herokuapp.com/users/'
+        const URL = 'https://users-crud.academlo.tech/users/'
         axios.delete(`${URL}${id}/`)
             .then(res => {
                 console.log(res.data)
