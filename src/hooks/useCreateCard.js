@@ -1,20 +1,29 @@
 import React from 'react'
 import axios from 'axios'
-const URL = 'https://users-crud1.herokuapp.com/users/'
-const useCreateCard = (data, getAllUsers) => {
 
-    console.log('en el axios')
-    console.log(data)
+const URL = 'https://users-crud.academlo.tech/users/'
 
-    axios.post(URL, data)
-        .then(res => {
-            console.log('se logro')
-            console.log(res.data)
-            getAllUsers()
+const useCreateCard = async (data, getAllUsers) => {
+  console.log(data)
+
+  // axios.post(URL, data)
+  //     .then(res => {
+  //         console.log('se logro')
+  //         console.log(res.data)
+  //         getAllUsers()
+
+
+  //     })
+  //     .catch(err => console.log(err))
+
+  try {
+    const res = await axios.post(URL, data)
+    getAllUsers()
+    console.log(res.response.status)
     
-            
-        })
-        .catch(err => console.log(err))
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 export default useCreateCard
