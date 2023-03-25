@@ -8,7 +8,7 @@ const CardUser = ({ user, getAllUsers, click, reset, setObjUpdate }) => {
 
 
     const deleteUser = (id) => {
-        const URL = 'https://users-crud.academlo.tech/users/'
+        const URL = 'http://users-crud.academlo.tech/users/'
         axios.delete(`${URL}${id}/`)
             .then(res => {
                 console.log(res.data)
@@ -19,7 +19,7 @@ const CardUser = ({ user, getAllUsers, click, reset, setObjUpdate }) => {
 
     const updateUser = () => {
         click()
-    
+
         const obj = {
             email: user.email,
             password: user.password,
@@ -29,7 +29,7 @@ const CardUser = ({ user, getAllUsers, click, reset, setObjUpdate }) => {
         }
         reset(obj)
         setObjUpdate(user)
-      }
+    }
 
 
     return (
