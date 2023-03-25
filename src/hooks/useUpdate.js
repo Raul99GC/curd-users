@@ -1,17 +1,17 @@
 import axios from 'axios'
 import React from 'react'
-const URL = 'https://users-crud1.herokuapp.com/users/'
+const URL = 'https://users-crud.academlo.tech/users/'
 
-const useUpdate = ( id, data, getAllUsers, click) => {
-    console.log('qui es update')
-    axios.patch(`${URL}${id}/`, data)
-        .then(res => {
-            console.log(res.data)
-            getAllUsers()
-            click()
+const useUpdate = async (id, data, getAllUsers, click) => {
 
-        })
-        .catch(err => console.log(err))
+  try {
+    await axios.patch(`${URL}${id}/`, data)
+    getAllUsers()
+    click()
+
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 export default useUpdate
